@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Diwali Greetings</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="fireworks"></canvas>
+  <div class="main-container">
+    <h1>Enter Your Name</h1>
+    <input type="text" id="userName" placeholder="Your Name" />
+    <button id="wishBtn">Get Wishes</button>
+    <div id="wishMessage" class="wish-message"></div>
+    <div class="quote-container">
+      <p class="quote">"Diwali is the festival of lights, illuminating hearts with joy and hope."</p>
+      <p class="quote">"Let the gleam of Diyas light your life with peace, prosperity, and happiness."</p>
+      <p class="quote">"May this Diwali bring new cheer and inspire you to strive and achieve."</p>
+    </div>
+  </div>
+  <script src="fireworks.js"></script>
+  <script>
+    const button = document.getElementById('wishBtn');
+    const input = document.getElementById('userName');
+    const messageDiv = document.getElementById('wishMessage');
+
+    button.addEventListener('click', () => {
+      const name = input.value.trim();
+      if(name === '') {
+        messageDiv.textContent = 'Please enter your name!';
+        messageDiv.style.color = '#ff4c4c';
+        return;
+      }
+      messageDiv.style.color = '#ffd700';
+      messageDiv.innerHTML = `
+        <h2>Happy Diwali, <span class="name-highlight">${name}</span>!</h2>
+        <p>May the festival of lights brighten your life with joy and success.</p>
+      `;
+      input.value = '';
+    });
+  </script>
+</body>
+</html>
